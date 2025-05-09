@@ -1,23 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Formulaire from './components/Formulaire';
+import FormulaireId from './components/FormulaireId';
+import ScoreCircle from './components/ScoreCircle';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Formulaire /> 
+      <FormulaireId /> 
+      <ScoreCircle score={75}/>
+
     </div>
   );
 }
