@@ -1,0 +1,60 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+
+# Données
+/back/data/application_train.csv
+/back/data/application_test.csv
+/back/data/*.csv
+/back/data/*.xlsx
+/back/data/*.pkl
+
+# Modèles
+/back/model/*.pkl
+/back/models/*.pkl
+/back/model/model.pkl
+/back/models/xgboost_model.pkl
+/back/model/*.txt
+/back/models/*.txt
+/back/model/feature_importances.png
+/back/model/confusion_matrix.png
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dépendances et environnement de développement
+/front/node_modules
+/front/.pnp
+/front/.pnp.js
+
+# Production
+/front/build
+/front/dist
+
+# Fichiers de configuration locaux
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Divers
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo 

@@ -1,0 +1,51 @@
+.result-card {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.result-card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.probability-container {
+  margin: 1rem 0;
+}
+
+.prob-label {
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.prob-label::after {
+  content: attr(data-value);
+  font-weight: bold;
+}
+
+.progress {
+  height: 25px;
+  margin-bottom: 1rem;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  transition: width 0.6s ease;
+}
+
+@media (max-width: 768px) {
+  .progress {
+    height: 20px;
+  }
+  
+  .progress-bar {
+    font-size: 0.8rem;
+  }
+} 
