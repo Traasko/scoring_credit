@@ -2,17 +2,14 @@ from flask import Flask, jsonify, send_from_directory, request
 from flask_cors import CORS
 import pandas as pd
 import numpy as np
-import joblib
 import os
 from prediction import make_prediction, preprocess_new_data, compute_shap_values, load_model
 
-# Initialisation de l'application Flask
+# Initialisation de l' API Flask
 app = Flask(__name__)
 CORS(app)
 
-# Les chemins vers le modèle
-model_path = os.path.join('model', 'model.pkl')
-model_path_alt = os.path.join('models', 'xgboost_model.pkl')
+model_path = os.path.join('model', 'best_model.pkl')
 
 @app.route('/predict/<int:client_id>', methods=['GET'])
 def predict(client_id):
@@ -40,13 +37,6 @@ def predict(client_id):
     except Exception as e:
         return jsonify({'error': str(e)}), 400
 
-@app.route('/health', methods=['GET'])
-def health_check():
-    """
-    Endpoint pour vérifier que l'API est opérationnelle
-    """
-    return jsonify({'status': 'ok'})
-
 @app.route('/', methods=['GET'])
 def home():
     """
@@ -60,11 +50,6 @@ def home():
                 'path': '/predict/<client_id>',
                 'method': 'GET',
                 'description': 'Obtenir une prédiction pour un client'
-            },
-            {
-                'path': '/health',
-                'method': 'GET',
-                'description': 'Vérifier l\'état de l\'API'
             }
         ]
     })

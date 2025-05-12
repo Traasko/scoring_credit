@@ -13,19 +13,18 @@ import matplotlib
 matplotlib.use('Agg')
 warnings.filterwarnings('ignore')
 
-MODEL_PATH = os.path.join('model', 'model.pkl')
+MODEL_PATH = os.path.join('model', 'best_model.pkl')
 # Chemin vers les données clients
 DATA_PATH = os.path.join('data', 'application_test.csv')
 
 # Liste des caractéristiques utilisées pour l'entraînement du modèle
-SELECTED_FEATURES = ['AMT_CREDIT', 'AMT_GOODS_PRICE', 'AMT_ANNUITY', 'DAYS_BIRTH', 
+SELECTED_FEATURES = ['AMT_CREDIT', 'AMT_ANNUITY', 'DAYS_BIRTH', 
                      'DAYS_EMPLOYED', 'EXT_SOURCE_1', 'EXT_SOURCE_2', 'EXT_SOURCE_3',
                      'NAME_EDUCATION_TYPE', 'OCCUPATION_TYPE']
 
 # Description des caractéristiques pour une meilleure interprétation
 FEATURE_DESCRIPTIONS = {
     'AMT_CREDIT': 'Montant du crédit',
-    'AMT_GOODS_PRICE': 'Prix des biens',
     'AMT_ANNUITY': 'Montant de l\'annuité',
     'DAYS_BIRTH': 'Âge (en jours)',
     'DAYS_EMPLOYED': 'Durée d\'emploi (en jours)',
@@ -39,7 +38,6 @@ FEATURE_DESCRIPTIONS = {
 # Recommandations
 FEATURE_RECOMMENDATIONS = {
     'AMT_CREDIT': 'Demander un montant de crédit moins élevé.',
-    'AMT_GOODS_PRICE': 'Réduire le prix des biens à financer.',
     'AMT_ANNUITY': 'Opter pour une durée de remboursement plus longue pour réduire les annuités.',
     'DAYS_BIRTH': 'Ce facteur ne peut pas être modifié (âge).',
     'DAYS_EMPLOYED': 'Une stabilité professionnelle plus longue est généralement favorable.',
@@ -111,7 +109,6 @@ def preprocess_client_data(client_data):
     """
     # Supprimer la colonne ID du client et la cible si elle existe
     features = client_data.drop(['SK_ID_CURR'], axis=1, errors='ignore')
-    features = features.drop(['TARGET'], axis=1, errors='ignore')
     
     # Gérer les valeurs manquantes par type de colonne avant encodage
     for col in features.columns:

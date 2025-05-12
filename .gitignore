@@ -20,6 +20,7 @@ ENV/
 /back/models/*.pkl
 /back/model/model.pkl
 /back/models/xgboost_model.pkl
+/back/model/best_model.pkl
 /back/model/*.txt
 /back/models/*.txt
 /back/model/feature_importances.png
