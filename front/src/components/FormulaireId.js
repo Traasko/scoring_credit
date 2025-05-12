@@ -28,12 +28,12 @@ const FormulaireId = () => {
         <Col md={8} lg={6}>
           <Card>
             <Card.Header className="bg-primary text-white">
-              <h2 className="h5 mb-0">Évaluation de crédit par ID client</h2>
+              <h2 className="h5 mb-0">Évaluation de crédit par ID de la demande de prêt</h2>
             </Card.Header>
             <Card.Body>
               <Form noValidate validated={validated} onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formClientId">
-                  <Form.Label>Identifiant du client (SK_ID_CURR)</Form.Label>
+                  <Form.Label>Identifiant de la demande de prêt (SK_ID_CURR)</Form.Label>
                   <Form.Control 
                     type="number" 
                     placeholder="Ex: 100001" 
@@ -43,7 +43,7 @@ const FormulaireId = () => {
                     min="100000"
                   />
                   <Form.Control.Feedback type="invalid">
-                    Veuillez saisir un ID client valide (minimum 100000).
+                    Veuillez saisir un ID de la demande de prêt valide (minimum 100000).
                   </Form.Control.Feedback>
                   <Form.Text className="text-muted">
                     Entrez l'identifiant du client pour évaluer sa demande de crédit.

@@ -36,8 +36,8 @@ const Formulaire = () => {
         AMT_CREDIT: parseFloat(formData.AMT_CREDIT),
         AMT_GOODS_PRICE: parseFloat(formData.AMT_GOODS_PRICE),
         AMT_ANNUITY: parseFloat(formData.AMT_ANNUITY),
-        DAYS_BIRTH: parseFloat(formData.DAYS_BIRTH), 
-        DAYS_EMPLOYED: parseFloat(formData.DAYS_EMPLOYED),
+        DAYS_BIRTH: -(parseFloat(formData.DAYS_BIRTH)*365),
+        DAYS_EMPLOYED: -parseFloat(formData.DAYS_EMPLOYED),
         EXT_SOURCE_1: parseFloat(formData.EXT_SOURCE_1),
         EXT_SOURCE_2: parseFloat(formData.EXT_SOURCE_2),
         EXT_SOURCE_3: parseFloat(formData.EXT_SOURCE_3)
@@ -160,28 +160,27 @@ const Formulaire = () => {
         </div>
 
         <div className="form-group">
-          <label>Âge (en jours négatifs)<span className="text-danger">*</span></label>
+          <label>Âge<span className="text-danger">*</span></label>
           <input 
             name="DAYS_BIRTH" 
             type="number" 
             value={formData.DAYS_BIRTH}
             onChange={handleChange}
-            placeholder="-10000"
+            placeholder="27"
             required
           />
-          <small>Ex: -10000 pour environ 27 ans</small>
         </div>
         <div className="form-group">
-          <label>Jours d'emploi (négatifs)<span className="text-danger">*</span></label>
+          <label>Jours d'emploi<span className="text-danger">*</span></label>
           <input 
             name="DAYS_EMPLOYED" 
             type="number" 
             value={formData.DAYS_EMPLOYED}
             onChange={handleChange}
-            placeholder="-1000" 
+            placeholder="1000"
             required
           />
-          <small>Ex: -1000 pour environ 3 ans</small>
+          <small>Ex: 1000 pour environ 3 ans</small>
         </div>
 
         <div className="form-group">

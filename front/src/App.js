@@ -32,7 +32,7 @@ function App() {
         </Row>
 
         <Tabs defaultActiveKey="id" id="credit-scoring-tabs" className="mb-4">
-          <Tab eventKey="id" title="Évaluation par ID Client">
+          <Tab eventKey="id" title="Évaluation par ID de la demande de prêt">
             <FormulaireId />
           </Tab>
           <Tab eventKey="form" title="Formulaire Complet">
